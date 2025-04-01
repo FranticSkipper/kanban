@@ -1,0 +1,39 @@
+{
+  "columns": [
+    {
+      "id": 0,
+      "title": "To Do"
+    },
+    {
+      "id": 1,
+      "title": "In Progress"
+    },
+    {
+      "id": 2,
+      "title": "Done"
+    }
+  ],
+  "tasks": [
+    {
+      "id": 0,
+      "title": "Create a new task",
+      "text": "Create a new task",
+      "columnId": 1,
+      "status": "todo"
+    },
+    {
+      "id": 1,
+      "title": "Add functionality to create a new task",
+      "text": "Add functionality to create a new task",
+      "columnId": 1,
+      "status": "todo"
+    },
+    {
+      "id": 2,
+      "title": "Delete a task",
+      "text": "Delete a task",
+      "columnId": 0,
+      "status": "todo"
+    }
+  ]
+}

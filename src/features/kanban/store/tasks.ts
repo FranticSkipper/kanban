@@ -30,25 +30,42 @@ export const tasksSlice = createSlice({
   name: "tasks",
   initialState,
   reducers: {
-    add: (state, action: PayloadAction<Task>): void => {
-      state.push(action.payload);
+    add: (
+      state,
+      action: PayloadAction<{
+        title: string;
+        text: string;
+        columnId: number;
+        status: string;
+      }>
+    ): void => {
+      const newTask = {
+        id: state.length ? state[state.length - 1].id + 1 : 0,
+        ...action.payload,
+      };
+      state.push(newTask);
     },
     remove: (state, action: PayloadAction<number>): Task[] => {
       return state.filter((task: Task) => task.id !== action.payload);
     },
-    move: (state, action: PayloadAction<number>) => {
+    move: (
+      state,
+      action: PayloadAction<{ taskId: number; columnId: number }>
+    ) => {
       const task: Task | undefined = state.find(
-        (task: Task) => task.id === action.payload
+        (task: Task) => task.id === action.payload.taskId
       );
 
       if (task) {
         return state.map((t: Task) => {
-          return t.id === task.id ? { ...t, columnId: action.payload } : t;
+          return t.id === task.id
+            ? { ...t, columnId: action.payload.columnId }
+            : t;
         });
       }
     },
   },
 });
 
-export const { add, remove } = tasksSlice.actions;
+export const { add, remove, move } = tasksSlice.actions;
 export default tasksSlice.reducer;
