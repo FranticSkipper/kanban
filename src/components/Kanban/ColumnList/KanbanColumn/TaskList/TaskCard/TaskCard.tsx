@@ -6,9 +6,10 @@ interface IProps {
 
 const TaskCard: React.FC<IProps> = function ({ task }) {
   return (
-    <li>
-      <p>{task.text}</p>
-      <p>{task.status}</p>
+    <li className="bg-white border-2 p-2 rounded-xl cursor-pointer">
+      <h3 className="font-bold text-left">{task.title}</h3>
+      <p className="text-left">{task.text}</p>
+      {/* <p>{task.status}</p> */}
     </li>
   );
 };

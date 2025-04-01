@@ -5,5 +5,5 @@ export default function TaskList({ tasks }: { tasks: Task[] }) {
   const tasksToRender = tasks.map((task: Task) => (
     <TaskCard key={task.id} task={task} />
   ));
-  return <ul>{tasksToRender}</ul>;
+  return <ul className="flex flex-col gap-y-[5px]">{tasksToRender}</ul>;
 }

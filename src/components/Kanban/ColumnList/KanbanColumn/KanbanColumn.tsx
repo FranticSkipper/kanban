@@ -10,11 +10,10 @@ export default function KanbanColumn({
   tasks: Task[];
 }) {
   return (
-    <li>
-      <h3>{column.title}</h3>
-      <ul>
+    <li className="border-2">
+      <h3 className="bg-black p-1 text-white">{column.title}</h3>
+      <ul className="px-3 py-2">
         <TaskList tasks={tasks} />
-        <li>Task</li>
       </ul>
     </li>
   );

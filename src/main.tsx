@@ -2,12 +2,12 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.tsx";
-import { tasksStore } from "./features/kanban/store/tasks.ts";
 import { Provider } from "react-redux";
+import { store } from "./features/kanban/store/store.ts";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <Provider tasksStore={tasksStore}>
+    <Provider store={store}>
       <App />
     </Provider>
   </StrictMode>
