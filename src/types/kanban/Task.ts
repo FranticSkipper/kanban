@@ -1,7 +1,7 @@
 export default interface Task {
-  id: number;
+  id: string;
   title: string;
   text: string;
-  columnId: number;
+  columnId: string;
   status: string;
 }

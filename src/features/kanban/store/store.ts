@@ -1,16 +1,20 @@
 import { configureStore } from "@reduxjs/toolkit";
 import tasksSlice from "./tasks";
 import columnSlice from "./columns";
-import { kanbanApi } from "./kanbanApi";
+import { columnsApi } from "./columnsApi";
+import { tasksApi } from "./tasksApi";
 
 export const store = configureStore({
   reducer: {
     tasks: tasksSlice,
     column: columnSlice,
-    [kanbanApi.reducerPath]: kanbanApi.reducer,
+    [columnsApi.reducerPath]: columnsApi.reducer,
+    [tasksApi.reducerPath]: tasksApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(kanbanApi.middleware),
+    getDefaultMiddleware()
+      .concat(tasksApi.middleware)
+      .concat(columnsApi.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

@@ -1,29 +1,30 @@
-import { useDispatch, useSelector } from "react-redux";
-import { move } from "../../../../../../../features/kanban/store/tasks";
-import { RootState } from "../../../../../../../features/kanban/store/store";
 import { useState } from "react";
 import Task from "../../../../../../../types/kanban/Task";
+import { useGetColumnsQuery } from "../../../../../../../features/kanban/store/columnsApi";
+import { useUpdateTaskMutation } from "../../../../../../../features/kanban/store/tasksApi";
 
 interface IProps {
   task: Task;
 }
 
 const TaskMoveSelect: React.FC<IProps> = function ({ task }) {
-  const [selectedValue, setSelectedValue] = useState<number>(task.columnId);
-  const dispatch = useDispatch();
-  const columns = useSelector((state: RootState) => state.column);
-
-  const optionToRender = columns.map((column) => {
-    return (
-      <option key={column.id} value={column.id}>
-        {column.title}
-      </option>
-    );
-  });
+  const [selectedValue, setSelectedValue] = useState<string>(task.columnId);
+  const {
+    data: columns = [],
+    isLoading: loadingCols,
+    isError: errorCols,
+  } = useGetColumnsQuery();
+  const [updateTask] = useUpdateTaskMutation();
 
   function handleTaskMove() {
-    dispatch(move({ taskId: task.id, columnId: selectedValue }));
-    setSelectedValue(0);
+    updateTask({
+      ...task,
+      columnId: selectedValue,
+    });
+  }
+
+  if (loadingCols || errorCols) {
+    return <div>Loading...</div>;
   }
 
   return (
@@ -31,10 +32,16 @@ const TaskMoveSelect: React.FC<IProps> = function ({ task }) {
       <select
         value={selectedValue}
         onChange={(e) => {
-          setSelectedValue(+e.target.value);
+          setSelectedValue(e.target.value);
         }}
       >
-        {optionToRender}
+        {columns.map((column) => {
+          return (
+            <option key={column.id} value={column.id}>
+              {column.title}
+            </option>
+          );
+        })}
       </select>
       <button onClick={handleTaskMove}>Move</button>
     </div>

@@ -2,55 +2,24 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import Task from "../../../types/kanban/Task";
 
-const initialState: Task[] = [
-  {
-    id: 0,
-    title: "Create a new task",
-    text: "Create a new task",
-    columnId: 1,
-    status: "todo",
-  },
-  {
-    id: 1,
-    title: "Add functionality to create a new task",
-    text: "Add functionality to create a new task",
-    columnId: 1,
-    status: "todo",
-  },
-  {
-    id: 2,
-    title: "Delete a task",
-    text: "Delete a task",
-    columnId: 0,
-    status: "todo",
-  },
-];
+const initialState: Task[] = [];
 
 export const tasksSlice = createSlice({
   name: "tasks",
   initialState,
   reducers: {
-    add: (
-      state,
-      action: PayloadAction<{
-        title: string;
-        text: string;
-        columnId: number;
-        status: string;
-      }>
-    ): void => {
+    add: (state, action: PayloadAction<Task>): void => {
       const newTask = {
-        id: state.length ? state[state.length - 1].id + 1 : 0,
         ...action.payload,
       };
       state.push(newTask);
     },
-    remove: (state, action: PayloadAction<number>): Task[] => {
+    remove: (state, action: PayloadAction<string>): Task[] => {
       return state.filter((task: Task) => task.id !== action.payload);
     },
     move: (
       state,
-      action: PayloadAction<{ taskId: number; columnId: number }>
+      action: PayloadAction<{ taskId: string; columnId: string }>
     ) => {
       const task: Task | undefined = state.find(
         (task: Task) => task.id === action.payload.taskId

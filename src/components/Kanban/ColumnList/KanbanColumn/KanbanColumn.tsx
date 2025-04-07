@@ -2,21 +2,18 @@ import Column from "../../../../types/kanban/Column";
 import Task from "../../../../types/kanban/Task";
 import TaskList from "./TaskList/TaskList";
 
-export default function KanbanColumn({
-  column,
-  tasks,
-}: {
+interface IProps {
   column: Column;
   tasks: Task[];
-}) {
-  console.log(tasks);
+}
 
+const KanbanColumn: React.FC<IProps> = function ({ column, tasks }) {
   return (
     <li className="border-2 min-w-[400px]">
       <h3 className="bg-black p-1 text-white">{column.title}</h3>
-      <ul className="px-3 py-2">
-        <TaskList tasks={tasks} />
-      </ul>
+      <TaskList columnID={column.id} tasks={tasks} />
     </li>
   );
-}
+};
+
+export default KanbanColumn;

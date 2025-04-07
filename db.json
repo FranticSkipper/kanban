@@ -1,38 +1,73 @@
 {
   "columns": [
     {
-      "id": 0,
+      "id": "0",
       "title": "To Do"
     },
     {
-      "id": 1,
+      "id": "1",
       "title": "In Progress"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Done"
     }
   ],
   "tasks": [
     {
-      "id": 0,
-      "title": "Create a new task",
-      "text": "Create a new task",
-      "columnId": 1,
+      "id": "682e",
+      "title": "qwe",
+      "text": "qwe",
+      "columnId": "",
       "status": "todo"
     },
     {
-      "id": 1,
-      "title": "Add functionality to create a new task",
-      "text": "Add functionality to create a new task",
-      "columnId": 1,
+      "id": "0c77",
+      "title": "qwe",
+      "text": "qwe",
+      "columnId": "",
       "status": "todo"
     },
     {
-      "id": 2,
-      "title": "Delete a task",
-      "text": "Delete a task",
-      "columnId": 0,
+      "id": "3271",
+      "title": "qwe",
+      "text": "qwe",
+      "columnId": "0",
+      "status": "todo"
+    },
+    {
+      "id": "157f",
+      "title": "йцу",
+      "text": "йцу",
+      "columnId": "",
+      "status": "todo"
+    },
+    {
+      "id": "d435",
+      "title": "qwe",
+      "text": "qwe",
+      "columnId": "1",
+      "status": "todo"
+    },
+    {
+      "id": "94b2",
+      "title": "qwe",
+      "text": "qwe",
+      "columnId": "",
+      "status": "todo"
+    },
+    {
+      "id": "3d8a",
+      "title": "qwe",
+      "text": "qwe",
+      "columnId": "2",
+      "status": "todo"
+    },
+    {
+      "id": "1d7b",
+      "title": "qwe",
+      "text": "qwe",
+      "columnId": "1",
       "status": "todo"
     }
   ]

@@ -1,40 +1,52 @@
-import { useDispatch, useSelector } from "react-redux";
 import FormColumnOption from "./FormColumnOption/FormColumnOption";
 import Column from "../../../types/kanban/Column";
-import { useState } from "react";
-import { add } from "../../../features/kanban/store/tasks";
-import { RootState } from "../../../features/kanban/store/store";
+import { useEffect, useState } from "react";
+import { useGetColumnsQuery } from "../../../features/kanban/store/columnsApi";
+import { useAddTaskMutation } from "../../../features/kanban/store/tasksApi";
 
 export default function NewTaskForm() {
   const [title, setTitle] = useState<string>("");
   const [text, setText] = useState<string>("");
   const [columnId, setColumnId] = useState<string>("");
-  const dispatch = useDispatch();
+  const [addTask] = useAddTaskMutation();
+  const {
+    data: columns = [],
+    isLoading: loadingCols,
+    isError: errorCols,
+  } = useGetColumnsQuery();
 
-  const columns = useSelector((state: RootState) => state.column);
-  const optionsToRender = columns.map((column: Column) => (
-    <FormColumnOption key={column.id} column={column} />
-  ));
+  useEffect(() => {
+    if (columns.length) {
+      setColumnId(columns[0].id);
+    }
+  }, [columns]);
 
-  function handleSubmti(e: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    console.log(columnId);
 
-    dispatch(
-      add({
-        title: title,
-        text: text,
-        columnId: +columnId,
-        status: "todo",
-      })
-    );
+    addTask({
+      title: title,
+      text: text,
+      columnId: columnId,
+      status: "todo",
+    });
 
+    resetForm();
+  }
+
+  function resetForm() {
     setTitle("");
     setText("");
     setColumnId("");
   }
 
+  if (loadingCols || errorCols) {
+    return <div>Loading...</div>;
+  }
+
   return (
-    <form onSubmit={handleSubmti}>
+    <form onSubmit={handleSubmit}>
       <p>
         <label>
           <span>Title</span>
@@ -78,7 +90,9 @@ export default function NewTaskForm() {
             }}
             required
           >
-            {optionsToRender}
+            {columns.map((column: Column) => (
+              <FormColumnOption key={column.id} column={column} />
+            ))}
           </select>
         </label>
       </p>
