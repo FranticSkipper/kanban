@@ -1,7 +1,7 @@
+import Task from "../../../entities/task/type";
 import { useDrag } from "react-dnd";
-import Task from "../type";
 
-export default function useTaskMove(task: Task) {
+const useTaskDrag = function (task: Task) {
   const [{ isDragging }, dragRef] = useDrag({
     type: "TASK",
     item: task,
@@ -9,5 +9,8 @@ export default function useTaskMove(task: Task) {
       isDragging: monitor.isDragging(),
     }),
   });
+
   return { isDragging, dragRef };
-}
+};
+
+export default useTaskDrag;

@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import toast from "react-hot-toast";
 import Task from "../../../../../entities/task/type";
 import { useUpdateTaskMutation } from "../../../../../entities/task/api";
-import TaskCard from "../../../../../entities/task/components/TaskCard/TaskCard";
+import TaskCard from "../../../../../features/move-task/ui/TaskCard";
 
 export default function TaskList({
   tasks,

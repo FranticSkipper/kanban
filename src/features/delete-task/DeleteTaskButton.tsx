@@ -1,12 +1,11 @@
 import useDeleteTask from "./model";
 
-export default function DeleteTaskButton({
-  taskID,
-  children,
-}: {
+interface Props {
   taskID: string;
   children: React.ReactNode;
-}) {
+}
+
+export default function DeleteTaskButton({ taskID, children }: Props) {
   const { handleDelete, isLoading } = useDeleteTask();
 
   return (
