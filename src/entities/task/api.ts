@@ -1,6 +1,6 @@
 import { fetchBaseQuery } from "@reduxjs/toolkit/query";
-import Task from "../../../types/kanban/Task";
 import { createApi } from "@reduxjs/toolkit/query/react";
+import Task from "./type";
 
 export const tasksApi = createApi({
   reducerPath: "tasksApi",

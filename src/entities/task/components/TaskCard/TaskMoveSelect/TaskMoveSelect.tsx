@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Task from "../../../../../../../types/kanban/Task";
-import { useGetColumnsQuery } from "../../../../../../../features/kanban/store/columnsApi";
-import { useUpdateTaskMutation } from "../../../../../../../features/kanban/store/tasksApi";
+import { useGetColumnsQuery } from "../../../../column/api";
+import { useUpdateTaskMutation } from "../../../api";
+import Task from "../../../type";
 
 interface IProps {
   task: Task;

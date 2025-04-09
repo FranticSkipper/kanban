@@ -46,7 +46,7 @@
       "id": "d435",
       "title": "qwe",
       "text": "qwe",
-      "columnId": "1",
+      "columnId": "2",
       "status": "todo"
     },
     {
@@ -57,17 +57,10 @@
       "status": "todo"
     },
     {
-      "id": "3d8a",
+      "id": "40b2",
       "title": "qwe",
       "text": "qwe",
-      "columnId": "2",
-      "status": "todo"
-    },
-    {
-      "id": "1d7b",
-      "title": "qwe",
-      "text": "qwe",
-      "columnId": "1",
+      "columnId": "0",
       "status": "todo"
     }
   ]

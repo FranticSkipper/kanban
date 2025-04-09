@@ -1,7 +1,7 @@
-import { useGetColumnsQuery } from "../../../features/kanban/store/columnsApi";
-import { useGetTasksQuery } from "../../../features/kanban/store/tasksApi";
-import Column from "../../../types/kanban/Column";
-import Task from "../../../types/kanban/Task";
+import { useGetColumnsQuery } from "../../../entities/column/api";
+import Column from "../../../entities/column/type";
+import { useGetTasksQuery } from "../../../entities/task/api";
+import Task from "../../../entities/task/type";
 import KanbanColumn from "./KanbanColumn/KanbanColumn";
 
 export default function ColumnList() {

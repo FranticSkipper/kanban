@@ -1,8 +1,8 @@
+import { useGetColumnsQuery } from "../../../entities/column/api";
+import Column from "../../../entities/column/type";
+import { useAddTaskMutation } from "../../../entities/task/api";
 import FormColumnOption from "./FormColumnOption/FormColumnOption";
-import Column from "../../../types/kanban/Column";
 import { useEffect, useState } from "react";
-import { useGetColumnsQuery } from "../../../features/kanban/store/columnsApi";
-import { useAddTaskMutation } from "../../../features/kanban/store/tasksApi";
 
 export default function NewTaskForm() {
   const [title, setTitle] = useState<string>("");

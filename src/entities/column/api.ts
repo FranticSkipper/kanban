@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import Column from "../../../types/kanban/Column";
+import Column from "./type";
 
 export const columnsApi = createApi({
   reducerPath: "columnApi",

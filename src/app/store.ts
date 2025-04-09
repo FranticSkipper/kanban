@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import tasksSlice from "./tasks";
-import columnSlice from "./columns";
-import { columnsApi } from "./columnsApi";
-import { tasksApi } from "./tasksApi";
+import tasksSlice from "../entities/task/slice";
+import columnSlice from "../entities/column/slice";
+import { columnsApi } from "../entities/column/api";
+import { tasksApi } from "../entities/task/api";
 
 export const store = configureStore({
   reducer: {

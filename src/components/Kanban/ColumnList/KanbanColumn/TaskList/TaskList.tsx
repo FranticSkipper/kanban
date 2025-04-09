@@ -1,9 +1,9 @@
 import { useDrop } from "react-dnd";
-import { useUpdateTaskMutation } from "../../../../../features/kanban/store/tasksApi";
-import Task from "../../../../../types/kanban/Task";
-import TaskCard from "./TaskCard/TaskCard";
 import { useEffect, useRef } from "react";
 import toast from "react-hot-toast";
+import Task from "../../../../../entities/task/type";
+import { useUpdateTaskMutation } from "../../../../../entities/task/api";
+import TaskCard from "../../../../../entities/task/components/TaskCard/TaskCard";
 
 export default function TaskList({
   tasks,
@@ -28,6 +28,7 @@ export default function TaskList({
           });
           toast("Задача перемещена");
         } catch {
+          // TODO: add error handler for error case
           console.log("error");
         }
       }
@@ -42,16 +43,15 @@ export default function TaskList({
       dropRef(ulRef);
     }
   }, [dropRef]);
-  console.log("com");
 
   return (
     <ul
       ref={ulRef}
-      className={`flex flex-col gap-y-[5px] min-h-100 border-1 transition-colors ${
+      className={`flex flex-col overflow-x-auto bg-white rounded-lg shadow-md gap-y-[5px] min-h-100 border-1 transition-colors ${
         isOver ? "bg-blue-100 border-blue-400 border-2" : ""
       }`}
     >
-      {tasksToRender}
+      {tasksToRender.length ? tasksToRender : <p>Нет задач!</p>}
     </ul>
   );
 }
