@@ -1,6 +1,6 @@
 import Column from "../../../../entities/column/type";
 import Task from "../../../../entities/task/type";
-import TaskList from "./TaskList/TaskList";
+import TaskList from "../../../../features/move-task/ui/TaskList";
 
 interface IProps {
   column: Column;

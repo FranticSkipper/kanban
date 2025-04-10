@@ -1,6 +1,6 @@
 import { Toaster } from "react-hot-toast";
 import "./App.css";
-import Kanban from "./components/Kanban/Kanban";
+import Kanban from "./widgets/kanban/kanban";
 
 function App() {
   return (

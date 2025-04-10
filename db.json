@@ -60,6 +60,13 @@
       "id": "40b2",
       "title": "qwe",
       "text": "qwe",
+      "columnId": "2",
+      "status": "todo"
+    },
+    {
+      "id": "554a",
+      "title": "qwe",
+      "text": "qwe",
       "columnId": "0",
       "status": "todo"
     }

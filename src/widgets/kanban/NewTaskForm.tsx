@@ -1,7 +1,7 @@
-import { useGetColumnsQuery } from "../../../entities/column/api";
-import Column from "../../../entities/column/type";
-import { useAddTaskMutation } from "../../../entities/task/api";
-import FormColumnOption from "./FormColumnOption/FormColumnOption";
+import { useGetColumnsQuery } from "../../entities/column/api";
+import Column from "../../entities/column/type";
+import { useAddTaskMutation } from "../../entities/task/api";
+import FormColumnOption from "../../features/add-task/ui/AddTaskForm/FormColumnOption/FormColumnOption";
 import { useEffect, useState } from "react";
 
 export default function NewTaskForm() {
